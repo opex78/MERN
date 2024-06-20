@@ -29,10 +29,37 @@ JSX => React.createElement => HTMLElement (render) - parcel / babel
 
 React Functional based component => normal javscript function => it has to return a JSX
 
-1.  function getRes() {
-
+const GetRes = () => {
+return <h1>hello</h1>
 }
 
-2.  const GetRes = () => {
-    return <h1>hello</h1>
-    }
+======================= Food Ordering App =============================
+
+1. Header
+
+   - Logo
+   - Nav Items
+
+2. Body
+
+   - Search
+   - Restaurant Container
+     - Restaurant Cards
+
+3. Footer
+   - Copyright
+   - Links
+   - Address
+   - Contact Details
+
+Top Level Component
+
+2 types of Exports
+
+1. Default Export
+
+- Exporting a function
+
+2. Named Export
+
+- Exporting a function with name of it
