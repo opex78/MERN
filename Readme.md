@@ -63,3 +63,8 @@ Top Level Component
 2. Named Export
 
 - Exporting a function with name of it
+
+
+## 
+Javascript 
+map, filter, reduce
