@@ -68,3 +68,13 @@ Top Level Component
 ## 
 Javascript 
 map, filter, reduce
+
+### 
+
+Hooks 
+1. React has utility functions => normal js functions => facebook developers
+   - these funs has some superpowers 
+- useState - 80%
+- useEffect - 15% 
+- other - 5%
+

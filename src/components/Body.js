@@ -1,5 +1,7 @@
+import React, { useState } from "react";
 import RestaurantCard from "./RestaurantCard";
-const mock_restaurants = [
+
+let mock_restaurants = [
     {
         "info": {
             "id": "355240",
@@ -799,13 +801,45 @@ const mock_restaurants = [
         "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
     }
 ]
+
+// let resList;
+// const GetRes = async () => {
+//     const data = await fetch(
+//         "https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.0044745&lng=72.55311549999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+//     );
+//     const json = await data.json();
+//     const resData = json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants;
+//     console.log("reslist", resList)
+//     resList = resData;
+// }
+
 const Body = () => {
+    let [restaurants, setRestaurnts] = useState(mock_restaurants)
+    console.log("restuarants", restaurants)
+    // GetRes();
+    // console.log("resList", resList[0]);
     return (
         <div className="body">
-            <div className="search"> Search</div>
+            {/* <div className="search"> Search</div>
+             */}
+            <div className="filter">
+                <button className="filtet-btn"
+                    onClick={() => {
+                        const filteredList = restaurants.filter((res) => {
+                            return res.info.avgRating > 4.1
+                        })
+                        console.log("filterList", filteredList);
+                        // reassign
+                        // mock_restaurants = filteredList;
+                        setRestaurnts(filteredList) // restaurants = filteredList
+                    }}>
+                    Top Rated Restaurants
+                </button>
+
+            </div>
             <div className="res-container">
                 {
-                    mock_restaurants.map((restaurant) => {
+                    restaurants.map((restaurant) => {
                         return <RestaurantCard
                             name={restaurant.info.name}
                             ratings={`${restaurant.info.avgRatingString} stars`}
