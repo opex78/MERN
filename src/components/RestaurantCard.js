@@ -1,5 +1,3 @@
-
-
 const RestaurantCard = ({ name, ratings, cuisines, deliveryTime, imageId }) => {
     return (
         <div className="res-card">

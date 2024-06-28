@@ -78,3 +78,29 @@ Hooks
 - useEffect - 15% 
 - other - 5%
 
+
+// normal variables
+let a = 10; 
+
+a = 15;
+
+// super powerful variable = state variables = React
+
+state variables => utility function, powerful function which is provided by React library => Hooks => Normal js fun
+
+1. useState =>  
+let [restaurants, setRestaurnts] = useState(mock_restaurants)
+   - state variable 
+   - special fun through which i can modify / reassign my state variable 
+      - this is necessary because if you don't do this and assign your variable like a normal one, then it will not come into the UI effect
+
+   - setRestaurnts(newVal) => your component will be re-rendered with the newVal that is why your UI is refreshed or reloaded 
+
+   
+
+
+
+
+
+
+
