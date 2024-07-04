@@ -19,7 +19,7 @@ const Body = () => {
         );
         const json = await data.json();
         const resData = json.data.cards[3].card.card.gridElements.infoWithStyle.restaurants;
-        console.log("resData", resData)
+        console.log("resData", resData);
         setRestaurnts(resData)
     }
 
