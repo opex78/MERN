@@ -31,7 +31,7 @@
 .res-card {
   background-color: #f0f0f0;
   width: 200px;
-  height: 350px;
+  height: 400px;
   margin: 5px;
 }
 
@@ -47,4 +47,31 @@
 .res-logo {
   width: 100%;
   height: 40%;
+}
+
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.shimmer-card {
+  background-color: #f0f0f0;
+  width: 200px;
+  height: 400px;
+  margin: 10px;
+}
+
+.filter {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+}
+
+.filter-btn {
+  margin-left: 10px;
+}
+
+.btn-search .disabled {
+  color: darkGray;
+  pointer-events: none;
 }
