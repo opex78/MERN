@@ -47,7 +47,7 @@ export const mock_restaurants = [
                 }
             },
             "aggregatedDiscountInfoV3": {
-                "header": "₹125 OFF",
+                "Header": "₹125 OFF",
                 "subHeader": "ABOVE ₹249",
                 "discountTag": "FLAT DEAL",
                 "discountCalloutInfo": {
@@ -150,7 +150,7 @@ export const mock_restaurants = [
                 }
             },
             "aggregatedDiscountInfoV3": {
-                "header": "₹125 OFF",
+                "Header": "₹125 OFF",
                 "subHeader": "ABOVE ₹249",
                 "discountTag": "FLAT DEAL"
             },
@@ -246,7 +246,7 @@ export const mock_restaurants = [
                 }
             },
             "aggregatedDiscountInfoV3": {
-                "header": "50% OFF",
+                "Header": "50% OFF",
                 "discountTag": "FLAT DEAL"
             },
             "orderabilityCommunication": {
@@ -353,7 +353,7 @@ export const mock_restaurants = [
                 }
             },
             "aggregatedDiscountInfoV3": {
-                "header": "₹125 OFF",
+                "Header": "₹125 OFF",
                 "subHeader": "ABOVE ₹249",
                 "discountTag": "FLAT DEAL"
             },
@@ -448,7 +448,7 @@ export const mock_restaurants = [
                 }
             },
             "aggregatedDiscountInfoV3": {
-                "header": "50% OFF",
+                "Header": "50% OFF",
                 "subHeader": "UPTO ₹100"
             },
             "orderabilityCommunication": {
@@ -639,7 +639,7 @@ export const mock_restaurants = [
                 }
             },
             "aggregatedDiscountInfoV3": {
-                "header": "60% OFF",
+                "Header": "60% OFF",
                 "subHeader": "UPTO ₹120"
             },
             "orderabilityCommunication": {
@@ -749,7 +749,7 @@ export const mock_restaurants = [
                 }
             },
             "aggregatedDiscountInfoV3": {
-                "header": "₹125 OFF",
+                "Header": "₹125 OFF",
                 "subHeader": "ABOVE ₹249",
                 "discountTag": "FLAT DEAL"
             },

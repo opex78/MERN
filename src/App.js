@@ -8,6 +8,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"))
 // Top Level Component
 // Component Composition 
 const AppLayout = () => {
+    // console.log("test virtual dom element type", typeof (<Header />))
+    // console.log("test virtual dom element", <Header />)
     return (
         <div className="app">
             <Header />

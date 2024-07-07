@@ -1,4 +1,4 @@
-.header {
+.Header {
   display: flex;
   justify-content: space-between;
   border: 1px solid black;
@@ -74,4 +74,7 @@
 .btn-search .disabled {
   color: darkGray;
   pointer-events: none;
+}
+.btn-login {
+  cursor: pointer;
 }

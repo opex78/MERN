@@ -64,23 +64,24 @@ Top Level Component
 
 - Exporting a function with name of it
 
+##
 
-## 
-Javascript 
+Javascript
 map, filter, reduce
 
-### 
+###
 
-Hooks 
+Hooks
+
 1. React has utility functions => normal js functions => facebook developers
-   - these funs has some superpowers 
+   - these funs has some superpowers
+
 - useState - 80%
-- useEffect - 15% 
+- useEffect - 15%
 - other - 5%
 
-
 // normal variables
-let a = 10; 
+let a = 10;
 
 a = 15;
 
@@ -88,19 +89,25 @@ a = 15;
 
 state variables => utility function, powerful function which is provided by React library => Hooks => Normal js fun
 
-1. useState =>  
-let [restaurants, setRestaurnts] = useState(mock_restaurants)
-   - state variable 
-   - special fun through which i can modify / reassign my state variable 
+1.  useState =>  
+    let [restaurants, setRestaurnts] = useState(mock_restaurants)
+
+    - state variable
+    - special fun through which i can modify / reassign my state variable
+
       - this is necessary because if you don't do this and assign your variable like a normal one, then it will not come into the UI effect
 
-   - setRestaurnts(newVal) => your component will be re-rendered with the newVal that is why your UI is refreshed or reloaded 
+    - setRestaurnts(newVal) => your component will be re-rendered with the newVal that is why your UI is refreshed or reloaded
 
-   
+    ## Use Effect
 
+    component loads => useEffect called
 
+          - [] - empty array
+             useEffect called only on initial render of the component
 
+         - not mention anything in dependency array
+            useEffect called on every re render cycle
 
-
-
-
+         - [statevariable]
+            useEffect will be called everytime only when there is a change in statevariable

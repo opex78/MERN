@@ -1,6 +1,8 @@
+import Login from "./Login";
+
 const Header = () => {
     return (
-        <div className="header">
+        <div className="Header">
             <div className="logo-container">
                 <img className="logo-img" alt="app-logo" src="https://img.freepik.com/premium-vector/burger-delivery-logo_10250-1711.jpg" />
             </div>
@@ -10,6 +12,7 @@ const Header = () => {
                     <li>About us</li>
                     <li>Contact us</li>
                     <li>Cart</li>
+                    <Login />
                 </ul>
             </div>
         </div>

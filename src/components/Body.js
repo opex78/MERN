@@ -3,17 +3,16 @@ import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 
 const Body = () => {
-    console.log("Body Rendered")
+    //console.log("Body Rendered")
 
     useEffect(() => {
-        console.log("useEffect is called");
+        //console.log("useEffect is called");
         fetchData();
-
     }, [])
 
-
     let [restaurants, setRestaurnts] = useState([])
-    let searchText = "";
+    let [filteredRes, setFilteredRes] = useState([])
+    let [searchText, setSearchText] = useState("")
 
     const fetchData = async () => {
         const data = await fetch(
@@ -24,12 +23,11 @@ const Body = () => {
         // disabled issue 
         // search restaurant should work without refreshing the page 
         // apply search text as state variable
-        const resData = json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-        console.log("resData", resData);
+        const resData = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+        //console.log("resData", resData);
         setRestaurnts(resData)
+        setFilteredRes(resData)
     }
-
-    console.log("restuarants", restaurants)
 
     return (
         <>
@@ -39,18 +37,17 @@ const Body = () => {
                         <div className="search-bar">
                             <input
                                 type="text"
+                                value={searchText}
                                 onChange={(e) => {
-
-                                    searchText = e.target.value;
-                                    console.log("searchText", searchText)
+                                    setSearchText(e.target.value)
                                 }} />
                             <button className={searchText?.length === 0 ? "btn-search disabled" : "btn-search"}
                                 onClick={() => {
-                                    console.log("searchText inside button", searchText)
+                                    //console.log("searchText inside button", searchText)
                                     const filteredSearchList = restaurants.filter((res) => {
-                                        return res?.info?.name?.toUpperCase().includes(searchText?.toUpperCase())
+                                        return res?.info?.name?.toUpperCase().trim().includes(searchText?.toUpperCase().trim())
                                     })
-                                    setRestaurnts(filteredSearchList)
+                                    setFilteredRes(filteredSearchList)
                                 }}>
                                 Search
                             </button>
@@ -60,7 +57,7 @@ const Body = () => {
                                 const filteredList = restaurants.filter((res) => {
                                     return res.info.avgRating > 4.2
                                 })
-                                setRestaurnts(filteredList) // restaurants = filteredList
+                                setFilteredRes(filteredList) // restaurants = filteredList
                             }}>
                             Top Rated Restaurants
                         </button>
@@ -72,7 +69,7 @@ const Body = () => {
                             // load this if we have restaurants then
                             //          execute entire body
                             // else load shimmer
-                            restaurants?.map((restaurant, index) => {
+                            filteredRes?.map((restaurant, index) => {
                                 return <RestaurantCard
                                     key={index}
                                     name={restaurant.info.name}
