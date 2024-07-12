@@ -111,3 +111,8 @@ state variables => utility function, powerful function which is provided by Reac
 
          - [statevariable]
             useEffect will be called everytime only when there is a change in statevariable
+
+## Best Practices 
+1. Never create hooks / state variables outside of your react component
+2. Always declare hooks on top of your functional component => because js is synchronous language.  
+2. Do not create hooks inside your function or loops, conditional statement

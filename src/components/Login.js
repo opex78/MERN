@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
 
 const Login = () => {
-
-
     console.log("Login component loaded")
     let test = "abc";
     const [btnText, setBtnText] = useState("Login")
     const [testBtnText, setTestBtnText] = useState("Logout")
     useEffect(() => {
         console.log("useEffect of login called")
-    }, [test])
+    }, [btnText])
+
     return (
         <>
             <button className="btn-login"
