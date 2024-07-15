@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
     //console.log("Body Rendered")
@@ -70,13 +71,16 @@ const Body = () => {
                             //          execute entire body
                             // else load shimmer
                             filteredRes?.map((restaurant, index) => {
-                                return <RestaurantCard
-                                    key={index}
-                                    name={restaurant.info.name}
-                                    ratings={`${restaurant.info.avgRatingString} stars`}
-                                    cuisines={restaurant.info.cuisines.join(", ")}
-                                    deliveryTime={restaurant.info.sla.slaString}
-                                    imageId={restaurant.info.cloudinaryImageId} />
+                                return (
+                                    <Link to="/restaurant-menu" key={index}>
+                                        <RestaurantCard
+                                            name={restaurant.info.name}
+                                            ratings={`${restaurant.info.avgRatingString} stars`}
+                                            cuisines={restaurant.info.cuisines.join(", ")}
+                                            deliveryTime={restaurant.info.sla.slaString}
+                                            imageId={restaurant.info.cloudinaryImageId} />
+                                    </Link>
+                                )
                             })
                         }
                     </div>
