@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -29,9 +29,9 @@ const Body = () => {
         setRestaurnts(resData)
         setFilteredRes(resData)
     }
-
+    // <> </> = <Framgment></Fragment> 
     return (
-        <>
+        <Fragment>
             {
                 (restaurants?.length == 0) ? <Shimmer /> : <div className="body">
                     <div className="filter">
@@ -70,9 +70,11 @@ const Body = () => {
                             // load this if we have restaurants then
                             //          execute entire body
                             // else load shimmer
+
                             filteredRes?.map((restaurant, index) => {
+                                console.log("restaurant id is:", restaurant.info.id)
                                 return (
-                                    <Link to="/restaurant-menu" key={index}>
+                                    <Link to={`/restaurant-menu/${restaurant.info.id}`} key={index}>
                                         <RestaurantCard
                                             name={restaurant.info.name}
                                             ratings={`${restaurant.info.avgRatingString} stars`}
@@ -86,8 +88,7 @@ const Body = () => {
                     </div>
                 </div>
             }
-
-        </>
+        </Fragment>
     )
 }
 

@@ -11,7 +11,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"))
 
 // Top Level Component
 // Component Composition 
-const AppLayout = () => {
+const AppLayout = (classNameDefault) => {
+    console.log("props", classNameDefault)
     return (
         <div className="app">
             <Header />
@@ -19,11 +20,11 @@ const AppLayout = () => {
         </div>
     )
 }
-
+console.log("AppLayout page element ", <AppLayout classNameDefault="hello" />)
 const appRouter = createBrowserRouter([
     {
         path: "",
-        element: <AppLayout />,
+        element: <AppLayout classNameDefault="hello" />,
         errorElement: <Error />,
         children: [
             {
@@ -39,7 +40,7 @@ const appRouter = createBrowserRouter([
                 element: <Body />,
             },
             {
-                path: "/restaurant-menu",
+                path: "/restaurant-menu/:resId",
                 element: <RestaurantMenu />,
             },
         ]

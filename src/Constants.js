@@ -799,7 +799,7 @@ export const mock_restaurants = [
     }
 ]
 
-export const RES_MENU_API = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=23.0044745&lng=72.55311549999999&restaurantId=636894&catalog_qa=undefined&submitAction=ENTER"
+export const RES_MENU_API = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=23.0044745&lng=72.55311549999999&restaurantId="
 
 export const mockResMenu = [{
     "card": {
