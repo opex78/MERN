@@ -24,6 +24,16 @@
   list-style-type: none;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
 .search {
   padding: 19px;
 }
@@ -42,6 +52,8 @@
 .res-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center; /* Horizontally centers the cards */
+  align-items: center; /* Vertically centers the cards */
 }
 
 .res-logo {
@@ -52,6 +64,8 @@
 .shimmer-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center; /* Horizontally centers the cards */
+  align-items: center; /* Vertically centers the cards */
 }
 
 .shimmer-card {
