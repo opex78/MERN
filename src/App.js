@@ -7,12 +7,14 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
+import User from "./components/User";
+import UserClass from "./components/UserClass";
 const root = ReactDOM.createRoot(document.getElementById("root"))
 
 // Top Level Component
 // Component Composition 
 const AppLayout = (classNameDefault) => {
-    console.log("props", classNameDefault)
+
     return (
         <div className="app">
             <Header />
@@ -20,7 +22,7 @@ const AppLayout = (classNameDefault) => {
         </div>
     )
 }
-console.log("AppLayout page element ", <AppLayout classNameDefault="hello" />)
+
 const appRouter = createBrowserRouter([
     {
         path: "",
@@ -43,6 +45,13 @@ const appRouter = createBrowserRouter([
                 path: "/restaurant-menu/:resId",
                 element: <RestaurantMenu />,
             },
+            {
+                path: "/user",
+                element: <>
+                    {/* <User name="myuser" email="myUser@my.com" /> */}
+                    <UserClass name="myuser class" email="myUserClass@my.com" />
+                </>
+            }
         ]
     }
 

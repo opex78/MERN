@@ -72,7 +72,6 @@ const Body = () => {
                             // else load shimmer
 
                             filteredRes?.map((restaurant, index) => {
-                                console.log("restaurant id is:", restaurant.info.id)
                                 return (
                                     <Link to={`/restaurant-menu/${restaurant.info.id}`} key={index}>
                                         <RestaurantCard
