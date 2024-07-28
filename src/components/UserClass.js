@@ -13,12 +13,20 @@ class UserClass extends React.Component {
     }
 
     componentDidMount() {
-        console.log("User Class component is mounted")
+        console.log("User Class componentDidMount is called")
         // api call
     }
 
-    render() {
+    componentDidUpdate() {
+        console.log("User Class componentDidUpdate is called")
+    }
 
+    componentWillUnmount() {
+        console.log("User Class componentWillUnmount is called")
+    }
+
+    render() {
+        console.log("User Class render method is called")
         const { name, avatar_url } = this.props
 
         const { count, count1 } = this.state

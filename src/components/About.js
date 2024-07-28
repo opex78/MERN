@@ -3,6 +3,7 @@ import UserClass from "./UserClass";
 class About extends React.Component {
 
     constructor() {
+        console.log("About constructor method is called")
         super();
         this.state = {
             userData: {}
@@ -10,6 +11,7 @@ class About extends React.Component {
     }
 
     async componentDidMount() {
+        console.log("About Class componentDidMount is called")
         const fetchUserData = await fetch("https://api.github.com/users/prabhhundal-dev")
         const jsonData = await fetchUserData.json()
         console.log(jsonData)
@@ -18,7 +20,16 @@ class About extends React.Component {
         })
     }
 
+    componentDidUpdate() {
+        console.log("About Class componentDidUpdate is called")
+    }
+
+    componentWillUnmount() {
+        console.log("About Class componentWillUnmount is called")
+    }
+
     render() {
+        console.log("About Class render method is called")
         const { login, avatar_url } = this.state.userData;
         return (
             <div>

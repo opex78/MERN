@@ -2,6 +2,7 @@ import React, { useState, useEffect, Fragment } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
     //console.log("Body Rendered")
@@ -14,6 +15,8 @@ const Body = () => {
     let [restaurants, setRestaurnts] = useState([])
     let [filteredRes, setFilteredRes] = useState([])
     let [searchText, setSearchText] = useState("")
+
+    const onlineStatus = useOnlineStatus();
 
     const fetchData = async () => {
         const data = await fetch(
@@ -30,6 +33,13 @@ const Body = () => {
         setFilteredRes(resData)
     }
     // <> </> = <Framgment></Fragment> 
+
+    if (onlineStatus === false) {
+        return (<h1>
+            Looks like you're offline! Please check your internet connection. !!!
+        </h1>)
+    }
+
     return (
         <Fragment>
             {
