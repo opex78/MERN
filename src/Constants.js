@@ -2,6 +2,7 @@ export const mock_restaurants = [
     {
         "info": {
             "id": "355240",
+            "promoted": true,
             "name": "Sandwich N Shakes",
             "cloudinaryImageId": "upnzhnaezkn1k11j2npx",
             "locality": "IIM Road",

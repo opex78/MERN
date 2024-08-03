@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client"
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Header from "./components/Header";
@@ -9,15 +9,21 @@ import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import User from "./components/User";
 import UserClass from "./components/UserClass";
+import Demo from "./components/Demo";
+// import Grocery from "./components/Grocery";
 const root = ReactDOM.createRoot(document.getElementById("root"))
 
 // Top Level Component
 // Component Composition 
+
+const Grocery = lazy(() => import("./components/Grocery"))
+
 const AppLayout = (classNameDefault) => {
 
     return (
         <div className="app">
             <Header />
+            <Demo name="resA" ratings="4.5" />
             <Outlet />
         </div>
     )
@@ -44,6 +50,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/restaurant-menu/:resId",
                 element: <RestaurantMenu />,
+            },
+            {
+                path: "/grocery",
+                element: <Suspense fallback={<div>Loading....</div>}><Grocery businessName="Burger Grocery" /><Grocery businessName="Cheese Grocery" /></Suspense>,
             },
             {
                 path: "/user",

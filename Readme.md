@@ -148,3 +148,27 @@ render (API Data)
 
    <HTML> (new API data)
    Component did update
+
+
+
+#### MakeMyTrip #####
+
+Hotel - 20 files
+Cab booking - 10 files
+Flight booking - 25 files - Default Business
+Total = 55 files
+
+https://www.makemytrip.com/ => I will not load all files 55 files
+25 files would be loaded 
+
+https://www.makemytrip.com/hotels/ - 1 file as a bundle => bundle internally contains 20 files in compressed mode (minified mode)
+
+
+1. Lazy
+2. Suspense
+
+
+==== Higher Order Component ====
+
+HOC : takes component as input and returns a enhanced component
+
