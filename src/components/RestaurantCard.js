@@ -1,13 +1,29 @@
-const RestaurantCard = ({ name, ratings, cuisines, deliveryTime, imageId }) => {
+export const RestaurantCard = ({ name, ratings, cuisines, deliveryTime, imageId }) => {
     return (
-        <div className="res-card">
-            <img className="res-logo" alt="res-logo" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + imageId} />
-            <h3>{name}</h3>
-            <h3>{cuisines}</h3>
-            <h3>{ratings}</h3>
-            <h3>{deliveryTime}</h3>
-        </div>
+        <div className="w-[250px] h-[300px] m-2 p-2 border-2 border-solid bg-gray-100 items-center hover:bg-gray-200">
+            <img className="w-60 h-36" alt="res-logo" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + imageId} />
+            <h1 className="font-bold text-lg">{name}</h1>
+            <h4>{cuisines}</h4>
+            <h4>{ratings}</h4>
+            <h4>{deliveryTime}</h4>
+        </div >
     )
 }
 
-export default RestaurantCard;
+
+// withPromotedLabel is a function which is taking RestaurantCard as Input and throwing an 
+// Promoted label Resturant card as a output
+
+export const withPromotedLabel = (RestaurantCard) => {
+    // we need return a component 
+    // component = a normal function which return jsx
+
+    return (props) => {
+        return (
+            <>
+                <label className="absolute bg-black text-white mx-2 px-2">Promoted</label>
+                <RestaurantCard {...props} />
+            </>
+        )
+    }
+}

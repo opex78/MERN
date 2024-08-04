@@ -1,12 +1,12 @@
 import React, { useState, useEffect, Fragment } from "react";
-import RestaurantCard from "./RestaurantCard";
+import { RestaurantCard, withPromotedLabel } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import { mock_restaurants } from "../Constants";
-import withLabel from "./withLabel";
 
-// const PromotedRestaurantCard = withLabel(RestaurantCard, "Promoted")
+
+const RestaurantPromotedCard = withPromotedLabel(RestaurantCard)
 
 const Body = () => {
     //console.log("Body Rendered")
@@ -51,15 +51,16 @@ const Body = () => {
         <Fragment>
             {
                 (restaurants?.length == 0) ? <Shimmer /> : <div className="body">
-                    <div className="filter">
-                        <div className="search-bar">
+                    <div className="flex">
+                        <div className="m-3">
                             <input
+                                className="border-2 border-solid border-black"
                                 type="text"
                                 value={searchText}
                                 onChange={(e) => {
                                     setSearchText(e.target.value)
                                 }} />
-                            <button className={searchText?.length === 0 ? "btn-search disabled" : "btn-search"}
+                            <button className="mx-2 px-2 border border-solid border-black rounded-lg bg-amber-400"
                                 onClick={() => {
                                     //console.log("searchText inside button", searchText)
                                     const filteredSearchList = restaurants.filter((res) => {
@@ -70,7 +71,7 @@ const Body = () => {
                                 Search
                             </button>
                         </div>
-                        <button className="filter-btn"
+                        <button className="m-1 p-1 border border-solid border-black rounded-lg bg-amber-400"
                             onClick={() => {
                                 const filteredList = restaurants.filter((res) => {
                                     return res.info.avgRating > 4.2
@@ -81,7 +82,7 @@ const Body = () => {
                         </button>
                     </div>
 
-                    <div className="res-container">
+                    <div className="flex flex-wrap ">
                         {
 
                             // load this if we have restaurants then
@@ -94,20 +95,19 @@ const Body = () => {
                                 return (
                                     /*of resturant is promoted then show label otherwise not*/
                                     <Link to={`/restaurant-menu/${restaurant.info.id}`} key={index}>
-                                        {restaurant.info.promoted ? <>
-                                            <label>Promoted</label>
-                                            <RestaurantCard
+                                        {restaurant.info.promoted ?
+                                            <RestaurantPromotedCard
                                                 name={restaurant.info.name}
                                                 ratings={`${restaurant.info.avgRatingString} stars`}
                                                 cuisines={restaurant.info.cuisines.join(", ")}
                                                 deliveryTime={restaurant.info.sla.slaString}
                                                 imageId={restaurant.info.cloudinaryImageId} />
-                                        </> : <RestaurantCard
-                                            name={restaurant.info.name}
-                                            ratings={`${restaurant.info.avgRatingString} stars`}
-                                            cuisines={restaurant.info.cuisines.join(", ")}
-                                            deliveryTime={restaurant.info.sla.slaString}
-                                            imageId={restaurant.info.cloudinaryImageId} />
+                                            : <RestaurantCard
+                                                name={restaurant.info.name}
+                                                ratings={`${restaurant.info.avgRatingString} stars`}
+                                                cuisines={restaurant.info.cuisines.join(", ")}
+                                                deliveryTime={restaurant.info.sla.slaString}
+                                                imageId={restaurant.info.cloudinaryImageId} />
                                         }
 
                                     </Link>

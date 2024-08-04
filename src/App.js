@@ -19,11 +19,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"))
 const Grocery = lazy(() => import("./components/Grocery"))
 
 const AppLayout = (classNameDefault) => {
-
     return (
         <div className="app">
             <Header />
-            <Demo name="resA" ratings="4.5" />
             <Outlet />
         </div>
     )

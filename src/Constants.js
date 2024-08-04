@@ -797,7 +797,7 @@ export const mock_restaurants = [
             "type": "WEBLINK"
         },
         "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
-    }
+    },
 ]
 
 export const RES_MENU_API = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=23.0044745&lng=72.55311549999999&restaurantId="

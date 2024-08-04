@@ -170,5 +170,5 @@ https://www.makemytrip.com/hotels/ - 1 file as a bundle => bundle internally con
 
 ==== Higher Order Component ====
 
-HOC : takes component as input and returns a enhanced component
+function, which will take a component as input and returns an enhanced component
 
