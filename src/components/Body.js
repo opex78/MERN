@@ -23,19 +23,19 @@ const Body = () => {
     const onlineStatus = useOnlineStatus();
 
     const fetchData = async () => {
-        // const data = await fetch(
-        //     "https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.0044745&lng=72.55311549999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-        // );
-        // const json = await data.json();
-        // // Home : if 2nd card has null then try accessing the 3rd if that is null fetch 4th and if that is null then load mock res
-        // // disabled issue 
-        // // search restaurant should work without refreshing the page 
-        // // apply search text as state variable
+        const data = await fetch(
+            "https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.0044745&lng=72.55311549999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+        );
+        const json = await data.json();
+        // Home : if 2nd card has null then try accessing the 3rd if that is null fetch 4th and if that is null then load mock res
+        // disabled issue 
+        // search restaurant should work without refreshing the page 
+        // apply search text as state variable
 
-        // const resData = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+        //const resData = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
         //console.log("resData", resData);
         const resData = mock_restaurants;
-        console.log(resData)
+        //console.log(resData)
         setRestaurnts(resData)
         setFilteredRes(resData)
     }
@@ -82,7 +82,9 @@ const Body = () => {
                         </button>
                     </div>
 
-                    <div className="flex flex-wrap ">
+                    <div className="w-3/12"></div>
+
+                    <div className=" flex flex-wrap ">
                         {
 
                             // load this if we have restaurants then
@@ -115,6 +117,7 @@ const Body = () => {
                             })
                         }
                     </div>
+                    <div className="w-3/12"></div>
                 </div>
             }
         </Fragment>

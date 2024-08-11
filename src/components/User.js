@@ -2,7 +2,7 @@ import { useState } from "react";
 
 // Functional component : normal js function which returns jsx
 const User = (props) => {
-    console.log("props of user functional component", props)
+    //console.log("props of user functional component", props)
     const { name, email } = props;
     const [count, setCount] = useState(0);
     const [count1, setCount1] = useState(1);

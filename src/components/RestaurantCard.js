@@ -1,7 +1,9 @@
+import { IMG_URL } from "../Constants"
+
 export const RestaurantCard = ({ name, ratings, cuisines, deliveryTime, imageId }) => {
     return (
         <div className="w-[250px] h-[300px] m-2 p-2 border-2 border-solid bg-gray-100 items-center hover:bg-gray-200">
-            <img className="w-60 h-36" alt="res-logo" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + imageId} />
+            <img className="w-60 h-36" alt="res-logo" src={IMG_URL + imageId} />
             <h1 className="font-bold text-lg">{name}</h1>
             <h4>{cuisines}</h4>
             <h4>{ratings}</h4>

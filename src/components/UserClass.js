@@ -4,7 +4,7 @@ import React from "react";
 
 class UserClass extends React.Component {
     constructor(props) {
-        console.log("User Class constructor method is called")
+        //console.log("User Class constructor method is called")
         super(props);
         this.state = {
             count: 0,
@@ -13,20 +13,20 @@ class UserClass extends React.Component {
     }
 
     componentDidMount() {
-        console.log("User Class componentDidMount is called")
+        //console.log("User Class componentDidMount is called")
         // api call
     }
 
     componentDidUpdate() {
-        console.log("User Class componentDidUpdate is called")
+        //console.log("User Class componentDidUpdate is called")
     }
 
     componentWillUnmount() {
-        console.log("User Class componentWillUnmount is called")
+        //console.log("User Class componentWillUnmount is called")
     }
 
     render() {
-        console.log("User Class render method is called")
+        //console.log("User Class render method is called")
         const { name, avatar_url } = this.props
 
         const { count, count1 } = this.state
