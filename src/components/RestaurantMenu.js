@@ -3,8 +3,11 @@ import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
 import Shimmer from "./Shimmer";
+import { useState } from "react";
 
 const RestaurantMenu = () => {
+    const [showIndex, setShowIndex] = useState(3);
+    const dummyData = "dummy"
     // receive the dynamic resId
     const { resId } = useParams();
     const categories = useRestaurantMenu(resId)
@@ -13,12 +16,15 @@ const RestaurantMenu = () => {
     if (categories?.length == 0) {
         return <Shimmer />
     }
-
     return (
         <div>
             <h3>
-                {categories.map((category) => (
-                    <RestaurantCategory key={"Maggi"} data={category} />
+                {categories.map((category, index) => (
+                    <RestaurantCategory key={category.card.card.title} data={category}
+                        showItems={index === showIndex}
+                        setShowIndex={(index) => setShowIndex(index)}
+                        index={index}
+                        dummyData={dummyData} />
                 ))}
             </h3>
         </div>

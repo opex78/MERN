@@ -172,3 +172,24 @@ https://www.makemytrip.com/hotels/ - 1 file as a bundle => bundle internally con
 
 function, which will take a component as input and returns an enhanced component
 
+
+
+
+
+RestaurantMenu -> dummyData
+RestaurantCategory -> dummyData
+a
+b
+c
+d
+ItemList -> access it 
+
+This concept is called as Prop Drilling which is the problem 
+
+Soln : React Context 
+
+global place => store data => access it anywhere you want 
+
+RestaurantMenu -> dummyData -> would be kept at react context 
+
+ItemList -> access it 

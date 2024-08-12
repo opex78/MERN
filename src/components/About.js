@@ -1,5 +1,6 @@
 import React from "react";
 import UserClass from "./UserClass";
+import UserContext from "./UserContext";
 class About extends React.Component {
 
     constructor() {
@@ -34,6 +35,12 @@ class About extends React.Component {
         return (
             <div>
                 <h1>About us</h1>
+                <h1>
+                    Logged in user name :
+                    <UserContext.Consumer>
+                        {(data) => console.log("data from about component", data)}
+                    </UserContext.Consumer>
+                </h1>
                 <UserClass name={login} avatar_url={avatar_url} />
             </div>
         )
