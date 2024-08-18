@@ -193,3 +193,29 @@ global place => store data => access it anywhere you want
 RestaurantMenu -> dummyData -> would be kept at react context 
 
 ItemList -> access it 
+
+
+============= REDUX Toolkit =================
+
+// write the data to your slice.
+1. When you click on Add to Cart (+) button, a dispatch action would be triggered. 
+Now, the dispatch will call a function that is responsible to go and edit the data of your redux store's slice.
+This function known as reducer. 
+
+// read the data from the slice.
+2. In order to read the data, we will use selector and use the data wherever we want. 
+
+Terms to be noted : 
+slice
+dispatch / action
+reducer 
+selector
+
+# React Toolkit
+
+- Install @reduxjs/toolkit & react-redux
+- Building the store
+- Connect store to my application
+- Slice (cartSlice)
+- dispatch (action) // write
+- Selector // read

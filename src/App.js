@@ -10,6 +10,8 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import User from "./components/User";
 import UserClass from "./components/UserClass";
 import Demo from "./components/Demo";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 // import Grocery from "./components/Grocery";
 const root = ReactDOM.createRoot(document.getElementById("root"))
 
@@ -20,10 +22,12 @@ const Grocery = lazy(() => import("./components/Grocery"))
 
 const AppLayout = (classNameDefault) => {
     return (
-        <div className="app">
-            <Header />
-            <Outlet />
-        </div>
+        <Provider store={appStore}>
+            <div className="app">
+                <Header />
+                <Outlet />
+            </div>
+        </Provider>
     )
 }
 
