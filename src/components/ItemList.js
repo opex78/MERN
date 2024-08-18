@@ -7,9 +7,9 @@ const ItemList = ({ items, dummyData }) => {
     console.log("dummyData", dummyData)
 
     const dispatch = useDispatch()
-    const handleAddItem = () => {
+    const handleAddItem = (item) => {
         // dispact action
-        dispatch(addItem("Pizza"))
+        dispatch(addItem(item))
     }
     return (
         <div>
@@ -24,9 +24,14 @@ const ItemList = ({ items, dummyData }) => {
                     </div>
                     <div className="">
                         <div className="absolute">
-                            <button className="p-2 bg-black shadow-lg m-auto text-white rounded-lg" onClick={handleAddItem}>Add +</button>
+                            <button className="p-2 bg-black shadow-lg m-auto text-white rounded-lg"
+                                //onClick={handleAddItem()}
+                                onClick={() => handleAddItem(item)}
+                            >
+                                Add +
+                            </button>
                         </div>
-                        <img src={IMG_URL + (item.card.info.imageId ? item.card.info.imageId : "3bcafac76c3be4afb1074caa5a9be4b8")} className="w-28" />
+                        <img className="w-28 h-28" src={IMG_URL + (item.card.info.imageId ? item.card.info.imageId : "3bcafac76c3be4afb1074caa5a9be4b8")} />
                     </div>
                 </div>
             ))

@@ -6,7 +6,7 @@ import Shimmer from "./Shimmer";
 import { useState } from "react";
 
 const RestaurantMenu = () => {
-    const [showIndex, setShowIndex] = useState(3);
+    const [showIndex, setShowIndex] = useState(null);
     const dummyData = "dummy"
     // receive the dynamic resId
     const { resId } = useParams();

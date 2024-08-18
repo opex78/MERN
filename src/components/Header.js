@@ -24,7 +24,7 @@ const Header = () => {
                     <li className="m-4 p-4"><Link to="/about">About us</Link></li>
                     <li className="m-4 p-4"><Link to="/grocery">Grocery</Link></li>
                     <li className="m-4 p-4"><Link to="/contact">Contact us</Link></li>
-                    <li className="m-4 p-4">Cart - {cartItems.length} </li>
+                    <li className="m-4 p-4"><Link to="/cart">Cart - {cartItems.length} </Link></li>
                     <li className="m-4 p-4 text-lg font-bold"> {data.loggedInUser}</li>
 
                 </ul>
