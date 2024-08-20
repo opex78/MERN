@@ -24,7 +24,7 @@ const Body = () => {
         // disabled issue 
         // search restaurant should work without refreshing the page 
         // apply search text as state variable
-        const resData = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+        const resData = json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
         //console.log("resData", resData);
         setRestaurnts(resData)
         setFilteredRes(resData)
