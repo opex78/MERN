@@ -2,6 +2,7 @@ export const mock_restaurants = [
     {
         "info": {
             "id": "355240",
+            "promoted": true,
             "name": "Sandwich N Shakes",
             "cloudinaryImageId": "upnzhnaezkn1k11j2npx",
             "locality": "IIM Road",
@@ -796,7 +797,7 @@ export const mock_restaurants = [
             "type": "WEBLINK"
         },
         "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
-    }
+    },
 ]
 
 export const RES_MENU_API = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=23.0044745&lng=72.55311549999999&restaurantId="
@@ -2103,3 +2104,5 @@ export const mockResMenu = [{
         "hideRestaurantDetails": true
     }
 }]
+
+export const IMG_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"

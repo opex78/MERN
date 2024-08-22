@@ -112,7 +112,110 @@ state variables => utility function, powerful function which is provided by Reac
          - [statevariable]
             useEffect will be called everytime only when there is a change in statevariable
 
-## Best Practices 
+## Best Practices
+
 1. Never create hooks / state variables outside of your react component
-2. Always declare hooks on top of your functional component => because js is synchronous language.  
-2. Do not create hooks inside your function or loops, conditional statement
+2. Always declare hooks on top of your functional component => because js is synchronous language.
+3. Do not create hooks inside your function or loops, conditional statement
+
+# string : ""
+
+# object (always in key-value pair): {
+
+"name":"MyName"
+}
+
+# array : index always starts with 0
+
+["red","blue", "white"]
+0 1 2
+
+---
+
+---- Mounting ----
+
+Constructor
+Render
+
+   <HTML Dummy>
+Component did mount 
+   <API Call>
+   <this.setState> => state variable is updated
+
+--- Update cycle
+
+render (API Data)
+
+   <HTML> (new API data)
+   Component did update
+
+
+
+#### MakeMyTrip #####
+
+Hotel - 20 files
+Cab booking - 10 files
+Flight booking - 25 files - Default Business
+Total = 55 files
+
+https://www.makemytrip.com/ => I will not load all files 55 files
+25 files would be loaded 
+
+https://www.makemytrip.com/hotels/ - 1 file as a bundle => bundle internally contains 20 files in compressed mode (minified mode)
+
+
+1. Lazy
+2. Suspense
+
+
+==== Higher Order Component ====
+
+function, which will take a component as input and returns an enhanced component
+
+
+
+
+
+RestaurantMenu -> dummyData
+RestaurantCategory -> dummyData
+a
+b
+c
+d
+ItemList -> access it 
+
+This concept is called as Prop Drilling which is the problem 
+
+Soln : React Context 
+
+global place => store data => access it anywhere you want 
+
+RestaurantMenu -> dummyData -> would be kept at react context 
+
+ItemList -> access it 
+
+
+============= REDUX Toolkit =================
+
+// write the data to your slice.
+1. When you click on Add to Cart (+) button, a dispatch action would be triggered. 
+Now, the dispatch will call a function that is responsible to go and edit the data of your redux store's slice.
+This function known as reducer. 
+
+// read the data from the slice.
+2. In order to read the data, we will use selector and use the data wherever we want. 
+
+Terms to be noted : 
+slice
+dispatch / action
+reducer 
+selector
+
+# React Toolkit
+
+- Install @reduxjs/toolkit & react-redux
+- Building the store
+- Connect store to my application
+- Slice (cartSlice)
+- dispatch (action) // write
+- Selector // read

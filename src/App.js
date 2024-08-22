@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client"
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Header from "./components/Header";
@@ -7,20 +7,31 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
+import User from "./components/User";
+import UserClass from "./components/UserClass";
+import Demo from "./components/Demo";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
+// import Grocery from "./components/Grocery";
 const root = ReactDOM.createRoot(document.getElementById("root"))
 
 // Top Level Component
 // Component Composition 
+
+const Grocery = lazy(() => import("./components/Grocery"))
+
 const AppLayout = (classNameDefault) => {
-    console.log("props", classNameDefault)
     return (
-        <div className="app">
-            <Header />
-            <Outlet />
-        </div>
+        <Provider store={appStore}>
+            <div className="app">
+                <Header />
+                <Outlet />
+            </div>
+        </Provider>
     )
 }
-console.log("AppLayout page element ", <AppLayout classNameDefault="hello" />)
+
 const appRouter = createBrowserRouter([
     {
         path: "",
@@ -36,6 +47,10 @@ const appRouter = createBrowserRouter([
                 element: <About />,
             },
             {
+                path: "/cart",
+                element: <Cart />,
+            },
+            {
                 path: "/",
                 element: <Body />,
             },
@@ -43,6 +58,17 @@ const appRouter = createBrowserRouter([
                 path: "/restaurant-menu/:resId",
                 element: <RestaurantMenu />,
             },
+            {
+                path: "/grocery",
+                element: <Suspense fallback={<div>Loading....</div>}><Grocery businessName="Burger Grocery" /><Grocery businessName="Cheese Grocery" /></Suspense>,
+            },
+            {
+                path: "/user",
+                element: <>
+                    {/* <User name="myuser" email="myUser@my.com" /> */}
+                    <UserClass name="myuser class" email="myUserClass@my.com" />
+                </>
+            }
         ]
     }
 

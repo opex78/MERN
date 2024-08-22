@@ -1,7 +1,12 @@
 import React, { useState, useEffect, Fragment } from "react";
-import RestaurantCard from "./RestaurantCard";
+import { RestaurantCard, withPromotedLabel } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
+import { mock_restaurants } from "../Constants";
+
+
+const RestaurantPromotedCard = withPromotedLabel(RestaurantCard)
 
 const Body = () => {
     //console.log("Body Rendered")
@@ -15,6 +20,8 @@ const Body = () => {
     let [filteredRes, setFilteredRes] = useState([])
     let [searchText, setSearchText] = useState("")
 
+    const onlineStatus = useOnlineStatus();
+
     const fetchData = async () => {
         const data = await fetch(
             "https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.0044745&lng=72.55311549999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
@@ -24,25 +31,36 @@ const Body = () => {
         // disabled issue 
         // search restaurant should work without refreshing the page 
         // apply search text as state variable
-        const resData = json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+
+        //const resData = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
         //console.log("resData", resData);
+        const resData = mock_restaurants;
+        //console.log(resData)
         setRestaurnts(resData)
         setFilteredRes(resData)
     }
     // <> </> = <Framgment></Fragment> 
+
+    if (onlineStatus === false) {
+        return (<h1>
+            Looks like you're offline! Please check your internet connection. !!!
+        </h1>)
+    }
+
     return (
         <Fragment>
             {
                 (restaurants?.length == 0) ? <Shimmer /> : <div className="body">
-                    <div className="filter">
-                        <div className="search-bar">
+                    <div className="flex">
+                        <div className="m-3">
                             <input
+                                className="border-2 border-solid border-black"
                                 type="text"
                                 value={searchText}
                                 onChange={(e) => {
                                     setSearchText(e.target.value)
                                 }} />
-                            <button className={searchText?.length === 0 ? "btn-search disabled" : "btn-search"}
+                            <button className="mx-2 px-2 border border-solid border-black rounded-lg bg-amber-400"
                                 onClick={() => {
                                     //console.log("searchText inside button", searchText)
                                     const filteredSearchList = restaurants.filter((res) => {
@@ -53,7 +71,7 @@ const Body = () => {
                                 Search
                             </button>
                         </div>
-                        <button className="filter-btn"
+                        <button className="m-1 p-1 border border-solid border-black rounded-lg bg-amber-400"
                             onClick={() => {
                                 const filteredList = restaurants.filter((res) => {
                                     return res.info.avgRating > 4.2
@@ -64,28 +82,42 @@ const Body = () => {
                         </button>
                     </div>
 
-                    <div className="res-container">
+                    <div className="w-3/12"></div>
+
+                    <div className=" flex flex-wrap ">
                         {
 
                             // load this if we have restaurants then
                             //          execute entire body
                             // else load shimmer
 
+
+
                             filteredRes?.map((restaurant, index) => {
-                                console.log("restaurant id is:", restaurant.info.id)
                                 return (
+                                    /*of resturant is promoted then show label otherwise not*/
                                     <Link to={`/restaurant-menu/${restaurant.info.id}`} key={index}>
-                                        <RestaurantCard
-                                            name={restaurant.info.name}
-                                            ratings={`${restaurant.info.avgRatingString} stars`}
-                                            cuisines={restaurant.info.cuisines.join(", ")}
-                                            deliveryTime={restaurant.info.sla.slaString}
-                                            imageId={restaurant.info.cloudinaryImageId} />
+                                        {restaurant.info.promoted ?
+                                            <RestaurantPromotedCard
+                                                name={restaurant.info.name}
+                                                ratings={`${restaurant.info.avgRatingString} stars`}
+                                                cuisines={restaurant.info.cuisines.join(", ")}
+                                                deliveryTime={restaurant.info.sla.slaString}
+                                                imageId={restaurant.info.cloudinaryImageId} />
+                                            : <RestaurantCard
+                                                name={restaurant.info.name}
+                                                ratings={`${restaurant.info.avgRatingString} stars`}
+                                                cuisines={restaurant.info.cuisines.join(", ")}
+                                                deliveryTime={restaurant.info.sla.slaString}
+                                                imageId={restaurant.info.cloudinaryImageId} />
+                                        }
+
                                     </Link>
                                 )
                             })
                         }
                     </div>
+                    <div className="w-3/12"></div>
                 </div>
             }
         </Fragment>
