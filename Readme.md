@@ -149,9 +149,7 @@ render (API Data)
    <HTML> (new API data)
    Component did update
 
-
-
-#### MakeMyTrip #####
+#### MakeMyTrip
 
 Hotel - 20 files
 Cab booking - 10 files
@@ -159,22 +157,16 @@ Flight booking - 25 files - Default Business
 Total = 55 files
 
 https://www.makemytrip.com/ => I will not load all files 55 files
-25 files would be loaded 
+25 files would be loaded
 
 https://www.makemytrip.com/hotels/ - 1 file as a bundle => bundle internally contains 20 files in compressed mode (minified mode)
-
 
 1. Lazy
 2. Suspense
 
-
 ==== Higher Order Component ====
 
 function, which will take a component as input and returns an enhanced component
-
-
-
-
 
 RestaurantMenu -> dummyData
 RestaurantCategory -> dummyData
@@ -182,33 +174,32 @@ a
 b
 c
 d
-ItemList -> access it 
+ItemList -> access it
 
-This concept is called as Prop Drilling which is the problem 
+This concept is called as Prop Drilling which is the problem
 
-Soln : React Context 
+Soln : React Context
 
-global place => store data => access it anywhere you want 
+global place => store data => access it anywhere you want
 
-RestaurantMenu -> dummyData -> would be kept at react context 
+RestaurantMenu -> dummyData -> would be kept at react context
 
-ItemList -> access it 
-
+ItemList -> access it
 
 ============= REDUX Toolkit =================
 
 // write the data to your slice.
-1. When you click on Add to Cart (+) button, a dispatch action would be triggered. 
-Now, the dispatch will call a function that is responsible to go and edit the data of your redux store's slice.
-This function known as reducer. 
 
-// read the data from the slice.
-2. In order to read the data, we will use selector and use the data wherever we want. 
+1. When you click on Add to Cart (+) button, a dispatch action would be triggered.
+   Now, the dispatch will call a function that is responsible to go and edit the data of your redux store's slice.
+   This function known as reducer.
 
-Terms to be noted : 
+// read the data from the slice. 2. In order to read the data, we will use selector and use the data wherever we want.
+
+Terms to be noted :
 slice
 dispatch / action
-reducer 
+reducer
 selector
 
 # React Toolkit
@@ -219,3 +210,21 @@ selector
 - Slice (cartSlice)
 - dispatch (action) // write
 - Selector // read
+
+# Types of testing (Developer)
+
+- Unit testing
+- Integration testing
+- End to End testing e2e testing
+
+# setting up testing in our app
+
+- Install React testing library
+- Installed jest
+- Install Babel dependencies
+- Configured babel - babel.config.js
+- Configure parcel config file to disable default babel transpilation.
+
+
+# 
+__ -> dundus symbol 
