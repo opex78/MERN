@@ -1,12 +1,13 @@
 import Login from "./Login";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import UserContext from "./UserContext";
 import { useSelector } from "react-redux";
 
 const Header = () => {
     const onlineStatus = useOnlineStatus();
+    const [btnText, setBtnText] = useState("Login");
     const data = useContext(UserContext)
     console.log("context data", data)
 
@@ -26,7 +27,17 @@ const Header = () => {
                     <li className="m-4 p-4"><Link to="/contact">Contact us</Link></li>
                     <li className="m-4 p-4"><Link to="/cart">Cart - {cartItems.length} </Link></li>
                     <li className="m-4 p-4 text-lg font-bold"> {data.loggedInUser}</li>
-
+                    <button
+                        className="m-4"
+                        onClick={() => {
+                            btnText == "Login" ? setBtnText("Logout") : setBtnText("Login");
+                        }}
+                    >
+                        {btnText}
+                    </button>
+                    {/* <button>
+                        DummyText
+                    </button> */}
                 </ul>
             </div>
         </div>

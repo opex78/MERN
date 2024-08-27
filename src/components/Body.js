@@ -54,6 +54,7 @@ const Body = () => {
                     <div className="flex">
                         <div className="m-3">
                             <input
+                                data-testid="searchInput"
                                 className="border-2 border-solid border-black"
                                 type="text"
                                 value={searchText}
@@ -61,6 +62,7 @@ const Body = () => {
                                     setSearchText(e.target.value)
                                 }} />
                             <button className="mx-2 px-2 border border-solid border-black rounded-lg bg-amber-400"
+                                data-testid="searchButton"
                                 onClick={() => {
                                     //console.log("searchText inside button", searchText)
                                     const filteredSearchList = restaurants.filter((res) => {
@@ -95,24 +97,26 @@ const Body = () => {
 
                             filteredRes?.map((restaurant, index) => {
                                 return (
-                                    /*of resturant is promoted then show label otherwise not*/
-                                    <Link to={`/restaurant-menu/${restaurant.info.id}`} key={index}>
-                                        {restaurant.info.promoted ?
-                                            <RestaurantPromotedCard
-                                                name={restaurant.info.name}
-                                                ratings={`${restaurant.info.avgRatingString} stars`}
-                                                cuisines={restaurant.info.cuisines.join(", ")}
-                                                deliveryTime={restaurant.info.sla.slaString}
-                                                imageId={restaurant.info.cloudinaryImageId} />
-                                            : <RestaurantCard
-                                                name={restaurant.info.name}
-                                                ratings={`${restaurant.info.avgRatingString} stars`}
-                                                cuisines={restaurant.info.cuisines.join(", ")}
-                                                deliveryTime={restaurant.info.sla.slaString}
-                                                imageId={restaurant.info.cloudinaryImageId} />
-                                        }
+                                    <div data-testid="resCard" key={index}>
+                                        <Link to={`/restaurant-menu/${restaurant.info.id}`} >
+                                            {restaurant.info.promoted ?
+                                                <RestaurantPromotedCard
+                                                    name={restaurant.info.name}
+                                                    ratings={`${restaurant.info.avgRatingString} stars`}
+                                                    cuisines={restaurant.info.cuisines.join(", ")}
+                                                    deliveryTime={restaurant.info.sla.slaString}
+                                                    imageId={restaurant.info.cloudinaryImageId} />
+                                                : <RestaurantCard
 
-                                    </Link>
+                                                    name={restaurant.info.name}
+                                                    ratings={`${restaurant.info.avgRatingString} stars`}
+                                                    cuisines={restaurant.info.cuisines.join(", ")}
+                                                    deliveryTime={restaurant.info.sla.slaString}
+                                                    imageId={restaurant.info.cloudinaryImageId} />
+                                            }
+
+                                        </Link>
+                                    </div>
                                 )
                             })
                         }

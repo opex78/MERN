@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react"
-import "@testing-library/jest-dom"
 import Contact from "../Contact"
+import "@testing-library/jest-dom"
 
 describe("Contact us Page test cases", () => {
     it("Should render heading inside Contact page", () => {
@@ -17,12 +17,16 @@ describe("Contact us Page test cases", () => {
         expect(inputName).toBeInTheDocument();
 
     })
+})
 
+describe("Contact us page textbox validation", () => {
     it("Should load 1 textbox inside contact component", () => {
         render(<Contact />)
 
+        // Query
         const textBoxes = screen.getAllByRole("textbox");
-        expect(textBoxes.length).toBe(1);
 
+        // Assert
+        expect(textBoxes.length).toBe(1);
     })
 })
